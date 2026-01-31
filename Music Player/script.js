@@ -1,7 +1,7 @@
 // Track data with sample audio URLs
 const tracks = [
     { 
-        title: '
+        title: 'Summer Vibes',
         artist: 'The Sunny Band', 
         duration: 225,
         url: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3'
@@ -65,7 +65,10 @@ init();
 
 function init() {
     updateTrackInfo();
+    loadTrack();
+    updatePlaylistUI();
     audioPlayer.volume = 0.7;
+    volumeValue.textContent = volumeRange.value + '%';
     
     // Event Listeners - Audio Player Events
     audioPlayer.addEventListener('play', onAudioPlay);
@@ -100,9 +103,8 @@ function init() {
     console.log('Music Player initialized');
 }
 
-/**
- * AUDIO CONTROL METHODS
- */
+// AUDIO CONTROL METHODS
+
 
 // Play or Pause current track
 function togglePlay() {
@@ -169,9 +171,8 @@ function handleAudioError(error) {
     pauseAudio();
 }
 
-/**
- * TRACK NAVIGATION METHODS
- */
+// TRACK NAVIGATION METHODS
+ 
 
 // Next Track
 function nextTrack() {
@@ -219,9 +220,8 @@ function loadTrack() {
     audioPlayer.load();
 }
 
-/**
- * TRACK INFORMATION METHODS
- */
+// TRACK INFORMATION METHODS
+ 
 
 // Update track info display
 function updateTrackInfo() {
@@ -275,9 +275,8 @@ function formatTime(seconds) {
     return `${mins}:${secs < 10 ? '0' : ''}${secs}`;
 }
 
-/**
- * VOLUME CONTROL
- */
+// VOLUME CONTROL
+ 
 
 function setVolume() {
     const volume = volumeRange.value / 100;
@@ -285,9 +284,8 @@ function setVolume() {
     volumeValue.textContent = volumeRange.value + '%';
 }
 
-/**
- * PLAYLIST & AUTOPLAY
- */
+// PLAYLIST & AUTOPLAY
+
 
 // Update playlist UI
 function updatePlaylistUI() {
@@ -320,9 +318,8 @@ function handleTrackEnd() {
     }
 }
 
-/**
- * SPECIAL CONTROLS
- */
+// SPECIAL CONTROLS
+
 
 // Toggle Shuffle
 function toggleShuffle() {
@@ -348,9 +345,8 @@ function toggleRepeat() {
     console.log('Repeat mode:', playerState.repeatMode);
 }
 
-/**
- * KEYBOARD SHORTCUTS
- */
+// KEYBOARD SHORTCUTS
+ 
 
 function handleKeyPress(e) {
     switch(e.code) {
