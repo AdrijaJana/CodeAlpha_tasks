@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Player</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="music-player">
+        <!-- Keyboard Shortcuts Hint -->
+        <div class="shortcuts-hint">
+            <p title="Keyboard Shortcuts">⌨️ Space: Play/Pause | ←/→: Prev/Next | ↑/↓: Volume</p>
+        </div>
+        <!-- Album Art -->
+        <div class="album-art">
+            <img src="https://via.placeholder.com/250" alt="Album Art" id="albumArt">
+        </div>
+
+        <!-- Track Information -->
+        <div class="track-info">
+            <h2 id="trackName">Song Title</h2>
+            <p id="artistName">Artist Name</p>
+        </div>
+
+        <!-- Progress Bar -->
+        <div class="progress-container">
+            <span id="currentTime">0:00</span>
+            <div class="progress-bar">
+                <div class="progress" id="progress"></div>
+                <input type="range" id="progressRange" min="0" max="100" value="0">
+            </div>
+            <span id="duration">0:00</span>
+        </div>
+
+        <!-- Controls -->
+        <div class="controls">
+            <button class="control-btn" id="prevBtn" title="Previous">
+                <span class="icon">⏮</span>
+            </button>
+            <button class="control-btn play-btn" id="playBtn" title="Play">
+                <span class="icon">▶</span>
+            </button>
+            <button class="control-btn" id="nextBtn" title="Next">
+                <span class="icon">⏭</span>
+            </button>
+        </div>
+
+        <!-- Volume Control -->
+        <div class="volume-container">
+            <span class="volume-icon">🔊</span>
+            <input type="range" id="volumeRange" min="0" max="100" value="70" class="volume-slider">
+            <span id="volumeValue">70%</span>
+        </div>
+
+        <!-- Playlist -->
+        <div class="playlist">
+            <h3>Playlist</h3>
+            <ul id="playlistItems">
+                <li class="playlist-item active" data-track="0">
+                    <span class="track-number">1.</span>
+                    <span class="track-title">Summer Vibes</span>
+                    <span class="track-duration">3:45</span>
+                </li>
+                <li class="playlist-item" data-track="1">
+                    <span class="track-number">2.</span>
+                    <span class="track-title">Night Drive</span>
+                    <span class="track-duration">4:12</span>
+                </li>
+                <li class="playlist-item" data-track="2">
+                    <span class="track-number">3.</span>
+                    <span class="track-title">Ocean Waves</span>
+                    <span class="track-duration">3:28</span>
+                </li>
+                <li class="playlist-item" data-track="3">
+                    <span class="track-number">4.</span>
+                    <span class="track-title">Electric Pulse</span>
+                    <span class="track-duration">4:00</span>
+                </li>
+                <li class="playlist-item" data-track="4">
+                    <span class="track-number">5.</span>
+                    <span class="track-title">Midnight Echo</span>
+                    <span class="track-duration">3:56</span>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Shuffle & Repeat Controls -->
+        <div class="extra-controls">
+            <button class="extra-btn" id="shuffleBtn" title="Shuffle">
+                <span class="icon">🔀</span>
+            </button>
+            <button class="extra-btn" id="repeatBtn" title="Repeat">
+                <span class="icon">🔁</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Hidden audio element -->
+    <audio id="audioPlayer"></audio>
+
+    <script src="script.js"></script>
+</body>
+</html>
